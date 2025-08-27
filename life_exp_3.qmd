@@ -1,0 +1,11 @@
+---
+title: "Life Exp GApminder"
+format: html
+---
+
+# Gapminder analysis
+```{r}
+library(tidyverse)
+library(gapminder)
+```
+
