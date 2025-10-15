@@ -1,9 +1,13 @@
 ---
-title: "Life Exp GApminder"
+title: "Life Exp Gapminder"
 format: html
 ---
 
 # Gapminder analysis
+
+Here is a wonderful analyis of gapminder data!
+
+
 ```{r}
 library(tidyverse)
 library(gapminder)
@@ -17,5 +21,17 @@ gapminder::gapminder_unfiltered  |>
   select(year, country, lifeExp) |>
   arrange(year) ->
   sumdat
+```
+
+```{r}
+sumdat |> 
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_point(aes(color = country)) +
+  geom_point(pch = 1) +
+  theme_bw() +
+  geom_smooth( se = FALSE) +
+  xlab("Year") +
+  ylab("Maximum Life Expectancy") +
+  scale_color_discrete(name = "Country")
 ```
 
